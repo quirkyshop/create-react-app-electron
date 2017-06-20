@@ -38,7 +38,7 @@ $ yarn build
 # pack
 
 Tips: you can speed up downloading the electron by modify package.json's electronMirror.
-eg. `"electronMirror": `https://npm.taobao.org/mirrors/electron/` for china user.
+eg. `"electronMirror": `https://npm.taobao.org/mirrors/electron/` for chinese user.
 
 Any package problem, pls check this out.[electron-builder's doc](https://github.com/electron-userland/electron-builder).
 
@@ -55,7 +55,7 @@ $ yarn pack:linux
 
 # autoUpdate
 
-[electron-simple-updater](https://github.com/megahertz/electron-simple-updater) and [electron-simple-publisher](https://github.com/megahertz/electron-simple-publisher) is a simple way to make this.You just need to modify `publisher.json` and `updator.url` in package.json.(default way is `github release` for more configuration, check [Transport](https://github.com/megahertz/electron-simple-publisher#transports))
+[electron-simple-updater](https://github.com/megahertz/electron-simple-updater) and [electron-simple-publisher](https://github.com/megahertz/electron-simple-publisher) is a simple way to make this.You just need to modify `publisher.json` and `updator.url` in package.json.(default way is `github release`. For more configuration, check [Transport](https://github.com/megahertz/electron-simple-publisher#transports))
 
 # TroubleShooting
 
