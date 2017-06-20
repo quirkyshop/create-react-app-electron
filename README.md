@@ -53,6 +53,10 @@ $ yarn pack:win
 $ yarn pack:linux 
 ```
 
+```autoUpdate
+
+[electron-simple-updater](https://github.com/megahertz/electron-simple-updater) and [electron-simple-publisher](https://github.com/megahertz/electron-simple-publisher) is a simple way to make this.You just need to modify `publisher.json` and `updator.url` in package.json.(default way is `github release` for more configuration, check [Transport](https://github.com/megahertz/electron-simple-publisher#transports))
+
 # TroubleShooting
 
 leave it to issue.
