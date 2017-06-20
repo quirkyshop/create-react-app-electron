@@ -11,7 +11,13 @@ function touchReact() {
 
 		if (!reactMountSuccess) {
 			reactMountSuccess = true;
-			child_process.exec('npm run electron');
+
+			try {
+				child_process.exec('npm run electron');	
+			} catch (e) {
+				console.log('=======lauch electron failed====', e);
+			}
+			
 		}
 	});		
 }

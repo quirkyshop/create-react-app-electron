@@ -2,7 +2,17 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
 const $ = require('nodobjc');
+const updater = require('electron-simple-updater');
 
+// for autoUpdater
+const appProductName = process.env.npm_package_productName || 'simple-app-name';
+app.setName(appProductName);
+
+updater.init({
+  checkUpdateOnStart: false,
+  autoDownload: false
+  // logger: log,
+});
 let mainWindow;
 
 function initClipboard () {
@@ -17,9 +27,8 @@ function initClipboard () {
 
 function createWindow () {
   initClipboard();
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 800, height: 600});  
 
-  
   let winUrl = url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
@@ -31,7 +40,7 @@ function createWindow () {
 
   console.log('传入的winUrl:', winUrl);
 
-  mainWindow.loadURL(winUrl);
+  mainWindow.loadURL(winUrl);  
 
   mainWindow.on('closed', function () {
     mainWindow = null;

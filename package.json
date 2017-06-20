@@ -1,21 +1,29 @@
 {
   "name": "create-react-app-with-electron",
-  "version": "0.1.0",
+  "version": "0.1.9",
   "description": "best boilerplates for electron-react",
   "author": "quirkyvar",
   "private": true,
   "dependencies": {
+    "electron-simple-updater": "^1.2.0",
     "nodobjc": "^2.1.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "rimraf": "^2.6.1"
   },
   "homepage": "./",
   "devDependencies": {
     "electron": "~1.6.2",
     "electron-builder": "^17.3.1",
+    "electron-builder-squirrel-windows": "*",
     "electron-rebuild": "^1.5.7",
+    "electron-simple-publisher": "*",
+    "json-stringify-pretty-compact": "^1.0.4",
     "npm-run-all": "^4.0.2",
     "react-scripts": "0.9.5"
+  },
+  "updater": {
+    "url": "https://raw.githubusercontent.com/quirkyshop/test-electron-auto-upload/master/updates.json"
   },
   "postinstall": "install-app-deps",
   "main": "build/main.js",
@@ -29,8 +37,9 @@
     "wait-react": "node scripts/wait-react.js",
     "rebuild": "electron-rebuild",
     "build": "react-scripts build",
-    "pack:common": "run-s build rebuild move-electron",
+    "pack:common": "run-s build inc-ver rebuild move-electron",
     "move-electron": "node scripts/cp-main.js",
+    "inc-ver": "node scripts/inc-version.js",
     "pack:all": "run-s pack:common build:all",
     "pack:mac": "run-s pack:common build:mac",
     "pack:win": "run-s pack:common build:win",
@@ -38,10 +47,8 @@
     "build:all": "ELECTRON_MIRROR=$electronMirror build --all",
     "build:mac": "ELECTRON_MIRROR=$electronMirror build --mac",
     "build:win": "ELECTRON_MIRROR=$electronMirror build --win",
-    "build:linux": "ELECTRON_MIRROR=$electronMirror build --linux"
+    "build:linux": "ELECTRON_MIRROR=$electronMirror build --linux",
+    "publish": "publish"
   },
-  "optionalDependencies": {
-    "7zip-bin": "^2.0.4",
-    "7zip-bin-mac": "^1.0.1"
-  }
+  "optionalDependencies": {"7zip-bin": "^2.0.4", "7zip-bin-mac": "^1.0.1"}
 }
